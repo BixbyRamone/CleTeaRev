@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username" : "root",
+    "host": "127.0.0.1",
+    "password": "root",
+    "database": "cletearev_db",
+    "dialect": "mysql"
+  },
+
+  "test": {
+    "username" : "root",
+    "host": "127.0.0.1",
+    "password": "root",
+    "database": "database_test",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username" : "root",
+    "host": "127.0.0.1",
+    "password": "root",
+    "database": "database_production",
+    "dialect": "mysql"
+  }
+}

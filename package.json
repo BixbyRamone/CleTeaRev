@@ -1,0 +1,34 @@
+{
+  "name": "cletearev",
+  "version": "1.0.0",
+  "description": "ctr website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BixbyRamone/CleTeaRev.git"
+  },
+  "author": "Gregory T Draheim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BixbyRamone/CleTeaRev/issues"
+  },
+  "homepage": "https://github.com/BixbyRamone/CleTeaRev#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-fileupload": "^0.3.0",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
+    "moment": "^2.19.2",
+    "morgan": "^1.9.0",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.0",
+    "passport": "^0.4.0",
+    "path": "^0.12.7",
+    "sequelize": "^4.22.6"
+  }
+}

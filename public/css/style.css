@@ -1,0 +1,76 @@
+.page-content {
+	/*background-image: url(../images/temppic.jpg);*/
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: red;
+}
+
+header {
+	
+	padding: 10px;
+}
+
+h1 {
+	font-size: 45px;
+	font: blue;
+	font-family: 'Slabo 27px', serif;
+}
+
+.img-header{
+	/*margin-top: 100px;*/
+}
+
+.login-head {
+	float: right;
+	font-size: 20px;
+}
+
+.nav-buttons {
+	/*float: right;*/
+	font-size: 10px;
+}
+
+/*footer headings*/
+footer > div > div > h4 {
+	width: 100%;
+	font-family: 'Slabo 27px', serif;
+	font-size: 40px;
+	background-color: rgb(255, 165, 102);
+}
+
+footer > div > div > ul > li {
+	font-size: 35px;
+}
+
+footer > div > div > ul {
+	list-style-type: none;
+
+}
+
+
+.drop-title {
+	font-family: 'Slabo 27px', serif;
+	font-size:20px;
+}
+
+/*dropdown menu text*/
+ul > li > a {
+	font-size: 25px;
+	margin-left: 10px;
+	color: black;
+	/*width: 200px;*/
+}
+
+.photo-link {
+	width: 100%;
+}
+
+/*----MEDIA QUERIES-----*/
+
+@media (min-width: 1600px){
+  .container {
+    width: 1570px;
+  }
+}
+
