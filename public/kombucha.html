@@ -1,45 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Cleveland Tea Revival Kombucha Class</title>
+     <!-- bootstrap cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!-- Navbar JS -->
-    <script type = "text/javascript" src="javascript/dropdown.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 </head>
-<body>
-    <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Shop</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Online Store</a>
-    <a href="#">Shop Menu</a>
-    <a href="#">Wholesale</a>
-  </div>
-</div>
-
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Events</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Kombucha Class</a>
-    <a href="#">Event Calendar</a>
-  </div>
-</div>
-
-<footer>
-
-            <h4 href="">Shop</h4>
-            <a href="">Online Store</a>
-            <a href="">Menu</a>
-            <br>
-            <h4 href="">Kombucha Class</h4>
-            <h4 href="">About</h4>
-            <h4 href="">Contact</h4>
-            <h4 href="">Locations</h4>
-            <h4 href="">Wholesale</h4>
-                
-            </footer>
+<body class="kombucha-body">
+     <div class="container-fluid">
+        <header>
+            <div class="">
+                <div class="row">
+                    <h1 class="col-lg-11">
+      Cleveland Tea Revival
+    </h1>
+                    <div class="login-head">
+                        LogIn
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8"></div>
+                    <!-- Shop button -->
+                    <div class="btn-group">
+                        <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Shop <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Online Store</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Shop Menu</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Wholesale</a></li>
+                        </ul>
+                    </div>
+                    <!-- Event button -->
+                    <div class="btn-group">
+                        <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Events <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Kombucha Class</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Calendar</a></li>
+                        </ul>
+                    </div>
+                    <!--Contact Button-->
+                    <div class="btn-group">
+                        <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Contact <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Location</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
 
 </body>
 </html>
