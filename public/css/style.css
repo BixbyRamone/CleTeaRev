@@ -8,6 +8,10 @@
 	background-color: red;
 }
 
+.header-font {
+	color: rgb(0, 0, 0);
+}
+
 .kombucha-body {
 	background-color: rgb(255, 165, 102);
 }
@@ -22,6 +26,12 @@ header {
 h1 {
 	font-size: 45px;
 	font-family: 'Slabo 27px', serif;
+}
+
+.content {
+	background-color: rgb(242, 247, 255);
+	margin: 20px;
+	padding: 20px;
 }
 
 .img-header {
@@ -81,6 +91,10 @@ h1 {
 .nav-buttons {
 	/*float: right;*/
 	font-size: 10px;
+}
+
+footer {
+	background-color: rgb(242, 247, 255);
 }
 
 /*footer headings*/

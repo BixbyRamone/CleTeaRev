@@ -18,6 +18,17 @@ let app = express();
 app.use(express.static('./public'));
 let db = require('./models');
 
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(fileUpload());
+
+// user morgan for developement
+app.use(logger('dev'));
+// Override with POST 
+app.use(methodOverride("_method"));	
+
+let index = require('./routes/index.js')(app);
 
 
 //---------------------------------------------
