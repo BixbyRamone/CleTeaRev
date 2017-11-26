@@ -17,9 +17,11 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     // Associations
-    // Tea.associate = function(models) {
-   
-    // }
+    Tea.associate = function(models) {
+        Tea.hasMany(models.Type, {
+            onDelete: "cascade"
+        });
+    }
 
     return Tea;
 

@@ -37,5 +37,15 @@ module.exports = {
 	},
 
 	//API routes
-	getTeas: 
+	getTeas: function(req, res) {
+		db.Tea.findAll({
+			// where: {
+			// 	id: 1
+			// }
+		}).then( function(results) {
+			res.json(results);
+		});
+	}
+
+	// getTeaTypes
 }

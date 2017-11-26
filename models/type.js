@@ -1,19 +1,21 @@
 module.exports = function(sequelize, DataTypes) {
 
     var Type = sequelize.define("Type", {
-        term: {
-            typeName: DataTypes.STRING
-        },
-       
+        typeName: {
+            type: DataTypes.STRING
+        }       
        
     });
 
     Type.associate = function(models) {
         
 
-        Type.hasMany(models.Tea, {
+        Type.belongsToMany(models.Tea, {
+            through: "allTeas",
             onDelete: "cascade"
         });
+
+    }
 
     return Type;
 

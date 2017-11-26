@@ -31,6 +31,7 @@ app.use(methodOverride("_method"));
 let index = require('./routes/index.js')(app);
 
 
+
 //---------------------------------------------
 
 db.sequelize.sync(
@@ -40,3 +41,5 @@ db.sequelize.sync(
 		console.log("App is listening on PORT " + PORT);
 	});
 });
+
+	module.exports = app;
