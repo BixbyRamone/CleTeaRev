@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Cleveland Tea Revival Home</title>
-    <!-- bootstrap cdn -->
+	<title>Cleveland Tea Revival Admin</title>
+
+	 <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -14,9 +14,13 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
-</head>
+    <!-- JS -->
+    <script type="text/javascript" src="/javascript/admin.js"></script>
 
+
+</head>
 <body>
+
 	<header>
             <div class="">
                 <div class="row">
@@ -24,7 +28,7 @@
       Cleveland Tea Revival
     </h1>
                     <div class="login-head">
-                        LogIn
+                        Admin LogIn
                     </div>
                 </div>
                 <div class="row">
@@ -32,27 +36,29 @@
                     <!-- Shop button -->
                     <div class="btn-group">
                         <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Shop <span class="caret"></span>
+                            Teas <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li role="separator" class="divider"></li>
-                            <li><a href="/store.html">Online Store</a></li>
+                            <li id="view-teas">View Teas</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/menu.html">Shop Menu</a></li>
+                            <li>Shop Menu</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/wholesale.html">Wholesale</a></li>
+                            <li>Wholesale</a></li>
                         </ul>
                     </div>
                     <!-- Event button -->
                     <div class="btn-group">
                         <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Events <span class="caret"></span>
+                            People <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li role="separator" class="divider"></li>
-                            <li><a href="/kombucha.html">Kombucha Class</a></li>
+                            <li>Customers</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/calendar.html">Calendar</a></li>
+                            <li>Employees</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li>Admins</a></li>
                         </ul>
                     </div>
                     <!--Contact Button-->
@@ -62,87 +68,24 @@
                         </button>
                         <ul class="dropdown-menu">
                         	<li role="separator" class="divider"></li>
-                            <li><a href="/blog.html">News</a></li>
+                            <li>Blog Posts</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/about.html">Location</a></li>
+                            <li>Calendar Events</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/about.html">About</a></li>
+                            <li>Kombucha Events</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </header>
-    <div class="container-fluid">
-        
 
-        <!-- ____________________CONTENT____________________________ -->
-        <div>
-        <a class="row" href="">
-        	<img class="photo-link logo" src="/images/temppicrsz.jpeg">
-        	<h3 class="img-header">Cleveland<br>Tea<br>Revival</h3>
-        	<div></div>   	
-        </a>
-    </div>
+        <div class="container">
+        	<div id="tea-container">
+        		<ul id="tea-list">
 
-       <br>
-
-        <div class="row">
-        	<a class="col-lg-4 inst-image" href="">
-        		<!-- <div class="row img-link"> -->
-        		<h4 class="link-text">Menu</h4>	
-        		<img class="photo-link" src="/images/window.jpg">
-        		<!-- <h3 class="link-header">Menu</h3> -->
-        		
-        		<!-- </div> -->
-        	</a>
-        	<a class="col-lg-4 inst-image" href="">
-        		<!-- <div class="row img-link"> -->
-        			<h4 class="link-text">Kombucha Class</h4>
-        		<img class="photo-link" src="/images/chalksign.jpg">
-        		<!-- <h3 class="link-header">Kombucha Class</h3> -->
-        		<!-- </div> -->
-        	</a>
-        	<a class="col-lg-4 inst-image" href="">
-        		<!-- <div class="row img-link"> -->
-        		<h4 class="link-text">Wholesale</h4>
-        		<img class="photo-link" src="/images/wreathrsz.jpeg">
-        		<!-- <h3 class="link-header">Wholesale</h3> -->
-        		<!-- </div> -->
-        	</a>
+        		</ul>
+        	</div>
         </div>
-        <br>
 
-        <!--FOOTER-->
-        <footer class="">
-            <div class="row">
-                <!-- <div class="col-lg-1"></div> -->
-                <div class="col-lg-4">
-                    <h4>Shop</h4>
-                    <ul>
-                        <li href="/store.html">Online Store</li>
-                        <li href="/menu.html">Menu</li>
-                        <li href="/wholesale.html">WholeSale</li>
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <h4>Events</h4>
-                    <ul>
-                        <li href="/kombucha.html">Kombucha Class</li>
-                        <li href="/calendar.html">Calendar</li>
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <h4>Contact</h4>
-                    <ul>
-                    	<li href="/blog.html">News</li>
-                        <li href="/about.html">Locations</li>
-                        <li href="/about.html">About</li>
-                    </ul>
-                </div>
-                <br>
-            </div>
-        </footer>
-    </div>
 </body>
-
 </html>

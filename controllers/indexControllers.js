@@ -36,12 +36,27 @@ module.exports = {
 		res.sendFile(path.join(__dirname, "../public/wholesale.html"));
 	},
 
+	admin: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/admin.html"));
+	},
+
 	//API routes
 	getTeas: function(req, res) {
 		db.Tea.findAll({
 			// where: {
 			// 	id: 1
 			// }
+		}).then( function(results) {
+			res.json(results);
+		});
+	},
+
+	addTea: function(req, res) {
+		db.Tea.create({
+			name: req.body.name,
+			price: req.body.price,
+			description: req.body.description,
+			teaTypes: req.body.teaTypes
 		}).then( function(results) {
 			res.json(results);
 		});

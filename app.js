@@ -30,7 +30,16 @@ app.use(methodOverride("_method"));
 
 let index = require('./routes/index.js')(app);
 
+//Middleware
+app.use(express.static('./public'));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+
+app.use(passport.session());
 
 //---------------------------------------------
 
