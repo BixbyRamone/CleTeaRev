@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Cleveland Tea Revival Admin</title>
 
-	 <!-- bootstrap cdn -->
+<head>
+    <title>Cleveland Tea Revival Admin</title>
+    <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -16,76 +16,125 @@
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
     <!-- JS -->
     <script type="text/javascript" src="/javascript/admin.js"></script>
-
-
 </head>
-<body>
 
-	<header>
-            <div class="">
-                <div class="row">
-                    <h1 class="col-lg-11">
+<body>
+    <header>
+        <div class="">
+            <div class="row">
+                <h1 class="col-lg-11">
       Cleveland Tea Revival
     </h1>
-                    <div class="login-head">
-                        Admin LogIn
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8"></div>
-                    <!-- Shop button -->
-                    <div class="btn-group">
-                        <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Teas <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li role="separator" class="divider"></li>
-                            <li id="view-teas">View Teas</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li>Shop Menu</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li>Wholesale</a></li>
-                        </ul>
-                    </div>
-                    <!-- Event button -->
-                    <div class="btn-group">
-                        <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            People <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li role="separator" class="divider"></li>
-                            <li>Customers</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li>Employees</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li>Admins</a></li>
-                        </ul>
-                    </div>
-                    <!--Contact Button-->
-                    <div class="btn-group">
-                        <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Contact <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                        	<li role="separator" class="divider"></li>
-                            <li>Blog Posts</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li>Calendar Events</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li>Kombucha Events</a></li>
-                        </ul>
-                    </div>
+                <div class="login-head">
+                    Admin LogIn
                 </div>
             </div>
-        </header>
-
-        <div class="container">
-        	<div id="tea-container">
-        		<ul id="tea-list">
-
-        		</ul>
-        	</div>
+            <div class="row">
+                <div class="col-lg-8"></div>
+                <!-- Shop button -->
+                <div class="btn-group">
+                    <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Teas <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li role="separator" class="divider"></li>
+                        <li id="view-teas">View Teas</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>Shop Menu</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>Wholesale</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Event button -->
+                <div class="btn-group">
+                    <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        People <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li role="separator" class="divider"></li>
+                        <li>Customers</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>Employees</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>Admins</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Contact Button-->
+                <div class="btn-group">
+                    <button type="" class="drop-title btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Contact <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li role="separator" class="divider"></li>
+                        <li>Blog Posts</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>Calendar Events</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>Kombucha Events</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- New Tea Bar -->
+    <div id="add-tea-bar" class="container">
+        <label for="basic-url">Tea Name:</label>
+        <div class="input-group">
+            <input id="tea-name-input" type="text" class="form-control" placeholder="Tea Name" aria-describedby="basic-addon1">
+        </div>
+        <label for="basic-url">Tea Price:</label>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">$</span>
+            <input id="tea-price-cup-input" type="text" class="form-control" placeholder="Tea Price: Cup" aria-describedby="basic-addon2">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">$</span>
+            <input id="tea-price-pot-input" type="text" class="form-control" placeholder="Tea Price: Pot" aria-describedby="basic-addon2">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">$</span>
+            <input id="tea-price-oz-input" type="text" class="form-control" placeholder="Tea Price: Per Oz" aria-describedby="basic-addon2">
+        </div>
+        <label for="basic-url">Tea Description:</label>
+        <div class="input-group">
+            <input id="tea-descript-input" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Description">
+        </div>
+        <label for="basic-url">Tea Types:</label>
+        <div class="input-group">
+            <input id="tea-types-input" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Types, each separated by comma">
         </div>
 
+        <button id="add-item-button">Submit</button>
+    </div>
+    <br>
+    <!-- <div class="container">
+	<form class="row">
+		<input class="col-md-3" type="text" name="tea-name" placeholder="Name of Tea">
+		<input class="col-md-3" type="text" name="tea-price" placeholder="Price of Tea">
+		<input class="col-md-3" type="textbox" name="tea-description" placeholder="Full description">
+		<input class="col-md-3" type="text" name="tea-types" placeholder="Types of tea, separted by commas">
+	</form>
+
+</div> -->
+    <br>
+    <!-- Tea Display -->
+    <div class="container">
+        <div class="panel pael-primary">
+            <div class="row panel-heading" id="tea-container">
+                <ul class="list-group" id="tea-list">
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

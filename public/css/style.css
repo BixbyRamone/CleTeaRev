@@ -39,11 +39,13 @@ h1 {
  	position: absolute;
  	text-align: center;
 	font-family: 'Slabo 27px', serif;
-	color: #fff;
+	color: rgb(242, 247, 255);
+	/*color: #fff;*/
 	padding: 20px;
 	margin-top: 20px;
 	font-size: 40px;
-	background-color: rgba(255, 165, 102, 0.70);
+	text-shadow: 0 0 5px #ffa566;
+	/*background-color: rgba(255, 165, 102, 0.70);*/
   }
 
   .img-link {
@@ -56,16 +58,17 @@ h1 {
 
   }
 
-
+/*Text for lower link-images*/
   div > a > h4 {
   	width: 93.3%;
 	position: absolute;
 	text-align: center;
 	margin-top: 30px;
-	color: #fff;
-	background-color: rgba(255, 165, 102, 0.70);
+	color: rgb(242, 247, 255);
+	text-shadow: 0 0 5px #ffa566;
+	/*background-color: rgba(255, 165, 102, 0.70);*/
 	font-family: 'Slabo 27px', serif;
-	padding-top: 5px;
+	padding-top: 100px;
 	padding-bottom: 5px;
   }
 
@@ -128,9 +131,22 @@ ul > li > a {
 	/*width: 200px;*/
 }
 
-.photo-link {
+.photo-link-foot {
+	width: 100%;
+	border-radius: 200px;
+}
+
+.photo-link-main {
 	width: 100%;
 }
+
+.float-right-img {
+	float: right;
+}
+
+/*.delete-button {
+	float: left;
+}*/
 
 /*----MEDIA QUERIES-----*/
 
