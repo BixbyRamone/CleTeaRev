@@ -27,7 +27,9 @@ $(document).ready(function() {
 
  		teaObject = {
  			name: teaData[i].name,
- 			price: teaData[i].price,
+ 			priceCup: teaData[i].priceCup,
+ 			pricePot: teaData[i].pricePot,
+ 			priceOz: teaData[i].priceOz,
  			description: teaData[i].description,
  			types: teaData[i].teaTypes
  		};
@@ -40,7 +42,7 @@ $(document).ready(function() {
 
  			var teaInfo = list;
  		teaInfo += '<div class="col-md-6">name: ' + teaObj.name + ' ' + '<br> ';
- 		teaInfo += 'price: ' + teaObj.price + ' <br> ';
+ 		teaInfo += 'price: ' + teaObj.priceCup + ' <br> ';
  		teaInfo += 'description: ' + teaObj.description + ' <br> ';
  		teaInfo += 'tea types: ' + teaObj.types;
  		teaInfo += '<img class="col-md-12 " src="https://static1.squarespace.com/static/5254245de4b0d49865bf2ad0/551db655e4b0c1bae096e600/551db6e9e4b0a007421e8164/1428010733370/golden+assam.jpg?format=500w">';

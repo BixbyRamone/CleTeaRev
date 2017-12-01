@@ -54,7 +54,9 @@ module.exports = {
 	addTea: function(req, res) {
 		db.Tea.create({
 			name: req.body.name,
-			price: req.body.price,
+			priceCup: req.body.priceCup,
+			pricePot: req.body.pricePot,
+			priceOz: req.body.priceOz,
 			description: req.body.description,
 			teaTypes: req.body.teaTypes
 		}).then( function(results) {
