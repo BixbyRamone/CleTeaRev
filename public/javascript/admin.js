@@ -75,6 +75,12 @@ $(document).ready(function() {
 
  //-------------------Funcitions for posting Teas----------------------
 
+ function createGroup(data) {
+		$.post("/api/group/new", data, function() {
+			window.location.href = "/group";
+		});
+	}
+
  	function postTeas() {
  		console.log("button clicked");
 
@@ -88,6 +94,18 @@ $(document).ready(function() {
  		};
 
  		console.log(teaPostObj);
+		console.log(window.location);
+ 		$.post("/upload/tea", teaPostObj, function() {
+			getDisplayTeas();
+		});
+
+ 		$("#tea-name-input").val('');
+ 		$("#tea-price-cup-input").val('');
+ 		$("#tea-price-pot-input").val('');
+ 		$("#tea-price-oz-input").val('');
+ 		$("#tea-descript-input").val('');
+ 		$("#tea-types-input").val('');
+	
  	}
 
 });

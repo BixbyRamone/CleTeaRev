@@ -9,6 +9,6 @@ module.exports = function(app) {
 
 	// API routes
 	app.get("/get/teas", indexController.getTeas),
-	app.post("/put/tea", indexController.addTea)
+	app.post("/upload/tea", indexController.addTea)
 
 };
