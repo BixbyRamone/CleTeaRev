@@ -47,6 +47,8 @@ module.exports = {
 			// 	id: 1
 			// }
 		}).then( function(results) {
+			// console.log(res.);
+			// console.log("*******************************")
 			res.json(results);
 		});
 	},
