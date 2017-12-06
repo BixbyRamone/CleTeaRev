@@ -69,7 +69,7 @@ $(document).ready(function() {
 	}
 
 	function appendModalInfo(htmlStuff) {
-		
+
 	}
 
 	//=====================================================
@@ -81,8 +81,8 @@ $(document).ready(function() {
 
 			$.get('/get/teas').done(function(data) {
 
-
-				showDisplayTeas(data);
+				console.log(data);
+				// showDisplayTeas(data);
 			});
 
 			areTeasVis = true;
