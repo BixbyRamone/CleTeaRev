@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
 	var areTeaVis = false;
-	console.log(areTeaVis);
 
 	$("#add-tea-bar").hide();
 //Menu Functionality
@@ -36,7 +35,6 @@ $(document).ready(function() {
  function showDisplayTeas(teaData) {
 
  	$('#tea-list').empty();
-
 
  	$("#add-tea-bar").show();
 

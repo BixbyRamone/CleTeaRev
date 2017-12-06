@@ -19,12 +19,15 @@ module.exports = function(sequelize, DataTypes) {
         teaTypes: {
             type: DataTypes.STRING
         },
-        imageLink1: {
-            type: DataTypes.STRING
-        },
-        imageLink2: {
-            type: DataTypes.STRING
-        }
+        // available: {
+        //     type: DataTypes.BOOLEAN
+        // }
+        // imageLink1: {
+        //     type: DataTypes.STRING
+        // },
+        // imageLink2: {
+        //     type: DataTypes.STRING
+        // }
        
     });
 
