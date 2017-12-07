@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	var modal, btn, span;
+
 	// var Tea = require('/constructors/adminconstructors.js');
 
 	var areTeasVis = false;
@@ -15,7 +17,8 @@ $(document).ready(function() {
   $("#add-item-button").on("click", postTeas);
 
  $(document).on("click", "#delete-button", deleteTea);
- $(document).on("click", "#edit-tea-button",editTea);
+ $(document).on("click", "#edit-tea-button", editTea);
+ $(document).on('click', )
 
 	//======================Constructor Stuff==============
 
@@ -29,7 +32,7 @@ $(document).ready(function() {
 		this.description = teaData.description;
 		this.teaTypes = teaData.teaTypes;
 		this.teaHTMLObj = teaObjtoHTML(this);
-		this.modalFunction = modalFunction();
+		// this.modalFunction = modalFunction();
 	}
 
 	function teaObjtoHTML(obj) {
@@ -62,7 +65,9 @@ $(document).ready(function() {
  	display += '<div id="' + thisTea.nameElement + '-edit-modal" class="modal"><!-- Modal content --><div class="modal-content"><span class="close">&times;</span><div id="add-tea-bar" class="container"><label for="basic-url">Tea Name:</label><div class="input-group"><input id="tea-name-input" type="text" class="form-control" placeholder="'+ thisTea.name + '" aria-describedby="basic-addon1"></div><label for="basic-url">Tea Price:</label><div class="input-group"><span class="input-group-addon" id="basic-addon1">$</span><input id="tea-price-cup-input" type="text" class="form-control" placeholder="Cup: ' + thisTea.priceCup + '" aria-describedby="basic-addon2"></div><div class="input-group"><span class="input-group-addon" id="basic-addon1">$</span><input id="tea-price-pot-input" type="text" class="form-control" placeholder="Pot: ' + thisTea.pricePot + '" aria-describedby="basic-addon2"></div><div class="input-group"><span class="input-group-addon" id="basic-addon1">$</span><input id="tea-price-oz-input" type="text" class="form-control" placeholder="Oz: '+ thisTea.priceOz + '" aria-describedby="basic-addon2"></div><label for="basic-url">Tea Description:</label><div class="input-group"><input id="tea-descript-input" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="' + thisTea.description + '"></div><label for="basic-url">Tea Types:</label><div class="input-group"><input id="tea-types-input" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="' + thisTea.types + '"></div>Currently Availble  <input id="checkbox-id" type="checkbox" name="availability" checked><br><button id="add-item-button"> Submit </button></div></div></div>';
  	// console.log(this);
 
- 	// modalFunction(thisTea.nameElement); 
+
+
+ 	modalFunction(thisTea.nameElement); 
 
  	return display;
 
@@ -137,10 +142,11 @@ $(document).ready(function() {
  		console.log(this);
  		console.log(this.name);
  		console.log(this.id);
- 		console.log(this.class);
  		// modalFunction(this.name);
-		var htmlObject = modalFunction(this.name);
-		modalClickExtension(htmlObject);
+
+ 		// modalFunction(this.name, this);
+		// var htmlObject = modalFunction(this.name);
+		// modalClickExtension(htmlObject);
 
  	}
 
@@ -152,8 +158,8 @@ $(document).ready(function() {
 
  	}
 
- 	function modalFunction(idParam) {
- 		console.log(idParam);
+ 	function modalFunction(idParam, button) {
+ 		console.log(idParam + "-modal");
 
  		var htmlObj = {}
 
@@ -162,22 +168,41 @@ $(document).ready(function() {
  		// console.log(idParam + '-delete-modal');
 
  		// Get the modal
-htmlObj.modal = document.getElementById(idParam + "-modal");
+var modal = document.getElementById(idParam + "-modal");
+console.log(modal);
 
 // console.log(htmlObj.modal);
 
 // Get the button that opens the modal
-htmlObj.btn = document.getElementsByName(idParam)[0];
+var btn = document.getElementsByName(idParam)[0];
+console.log(btn);
+console.log(button);
 
 
 // console.log(htmlObj.btn);
 // Get the <span> element that closes the modal
-htmlObj.span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close")[0];
+console.log(span);
 // console.log(htmlObj.span);
 
-console.log(htmlObj)
+// console.log(htmlObj.btn)
 
-return htmlObj;
+// return htmlObj;
+$(document).on("click", htmlObj.btn, function() {
+ 			// event.preventDefault();
+ 			modal.style.display = "block"
+ 		});
+
+ $(document).on("click", htmlObj.span, function(event) {
+		// event.preventDefault();
+ 			modal.style.display = "none"
+ 		});
+
+ window.onclick = function(event) {
+    if (event.target == htmlObj.modal) {
+        modal.style.display = "none";
+    }
+}
 
 // // When the user clicks on the button, open the modal 
 // htmlObj.btn.onclick = function() {
@@ -207,16 +232,25 @@ return htmlObj;
 
  	function modalClickExtension(obj) {
  		console.log(obj);
- 		// When the user clicks on the button, open the modal 
-obj.btn.onclick = function() {
-	console.log("btn clicked")
-    obj.modal.style.display = "block";
-}
+ 		// When the user clicks on the button, open the modal
+ 		$(document).on("click", obj.btn, function() {
+ 			event.preventDefault();
+ 			obj.modal.style.display = "block"
+ 		});
+// obj.btn.onclick = function() {
+// 	console.log("btn clicked")
+//     obj.modal.style.display = "block";
+// }
 
 // When the user clicks on <span> (x), close the modal
-obj.span.onclick = function() {
-    obj.modal.style.display = "none";
-}
+// obj.span.onclick = function() {
+//     obj.modal.style.display = "none";
+// }
+
+$(document).on("click", obj.span, function(event) {
+		event.preventDefault();
+ 			obj.modal.style.display = "none"
+ 		}) 
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
