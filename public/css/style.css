@@ -144,6 +144,8 @@ ul > li > a {
 	float: right;
 }
 
+#chk
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -181,6 +183,7 @@ ul > li > a {
     text-decoration: none;
     cursor: pointer;
 }
+
 
 /*.delete-button {
 	float: left;

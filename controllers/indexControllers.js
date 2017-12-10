@@ -8,7 +8,7 @@ module.exports = {
 		res.sendFile(path.join(__dirname, "../public/index.html"));
 	},
 
-	menu: function(req, res) {
+	about: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/about.html"));
 	},
 
@@ -64,7 +64,26 @@ module.exports = {
 		}).then( function(results) {
 			res.json(results);
 		});
-	}
+	},
+
+	updateTea: function(req, res) {
+		db.Tea.update(req.body, {			
+			where: {
+				id: req.user.Tea
+			}
+			// name: req.body.name,
+			// priceCup: req.body.priceCup,
+			// pricePot: req.body.pricePot,
+			// priceOz: req.body.priceOz,
+			// description: req.body.description,
+			// teaTypes: req.body.teaTypes,
+			// available: req.body.available,
+			// imageLink1: req.body.imageLink1
+		}).then(function(results) {
+			console.log(results);
+			res.json(results);
+		});
+	},
 
 	// getTeaTypes
 }
