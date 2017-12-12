@@ -70,7 +70,11 @@ $(document).ready(function() {
         var headers = [];
 
         for (var i = obj.length - 1; i >= 0; i--) {
+        	console.log(obj[i].category);
+        	console.log(headers.indexOf(obj[i].category));
+        	if (headers.indexOf(obj[i].category) === -1) {
             headers.push(obj[i].category);
+        }
         }
 
         console.log("setUpPage");
