@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
 
-	getDisplayTeas();
+    getDisplayTeas();
 
-	function Tea(teaData) {
-    	this.id = teaData.id;
+    function Tea(teaData) {
+        this.id = teaData.id;
         this.name = teaData.name;
         this.nameElement = nameToElement(teaData);
         this.priceCup = teaData.priceCup;
@@ -22,31 +22,39 @@ $(document).ready(function() {
 
         // if (areTeasVis === false) {
 
-            $.get('/get/teas').done(function(data) {
+        $.get('/get/teas').done(function(data) {
 
-            	setUpPage(data);
-                showDisplayTeas(data);
-            });
+            setUpPage(data);
+            // showDisplayTeas(data);
+        });
 
-            // areTeasVis = true;
+        // areTeasVis = true;
         // }
     }
 
 
-    function showDisplayTeas(teaData) {
+    function showDisplayTeas(teaData, headerNames) {
+    	// var teaPanelArray = [];
 
         $('#tea-list').empty();
         $('#add-tea-bar').show();
 
         for (var i = 0; i < teaData.length; i++) {
             var teaPanel = new Tea(teaData[i]);
+            teaPanel = teaPanel.teaHTMLObj;
             console.log(teaPanel);
-            $('#tea-list').append(teaPanel.teaHTMLObj);
+            // teaPanelArray.push(teaPanel.teaHTMLObj);
+            var id = ".tea-list-" + teaData[i].category;
+            console.log(id);
+            // id = document.getElementById(id);
+            console.log(id);
+            console.log(teaPanel);
+            $("." + teaData[i].category).append(teaPanel);
         }
     }
 
     function teaObjtoHTML(obj) {
-// construcint html for a tea panel
+        // construcint html for a tea panel
 
         var teaInfo = '<li class="list-group-item">';
         teaInfo += '<div class="col-md-6">name: ' + obj.name + '<br> ';
@@ -64,16 +72,30 @@ $(document).ready(function() {
     }
 
     function setUpPage(obj) {
-console.log(obj[0].category);
-    	var headers = [];
+        console.log(obj[0].category);
+        var headers = [];
 
-    	for (var i = obj.length - 1; i >= 0; i--) {
-    		headers.push(obj[i].category);
-    	}
+        for (var i = obj.length - 1; i >= 0; i--) {
+            headers.push(obj[i].category);
+        }
 
-    	console.log("setUpPage");
-    	console.log(headers);
+        console.log("setUpPage");
+        console.log(headers);
+
+        for (var i = headers.length - 1; i >= 0; i--) {
+            headers[i] = headers[i] + '<div class="list-group ' + headers[i] + '" id="tea-list-' +headers[i]+ ' "></div>'
+        }
+        console.log(headers);
+
+        for (var i = headers.length - 1; i >= 0; i--) {
+            $("#menu-content").append(headers[i]);
+        }
+
+        showDisplayTeas(obj, headers);
+
+
     }
+    
 
     function nameToElement(obj) {
 
@@ -82,5 +104,7 @@ console.log(obj[0].category);
 
         return elementName;
     }
-	
+
+
+
 });
