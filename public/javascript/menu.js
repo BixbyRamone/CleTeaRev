@@ -33,7 +33,7 @@ $(document).ready(function() {
     }
 
 
-    function showDisplayTeas(teaData, headerNames) {
+    function showDisplayTeas(teaData) {
     	// var teaPanelArray = [];
 
         $('#tea-list').empty();
@@ -42,13 +42,7 @@ $(document).ready(function() {
         for (var i = 0; i < teaData.length; i++) {
             var teaPanel = new Tea(teaData[i]);
             teaPanel = teaPanel.teaHTMLObj;
-            console.log(teaPanel);
-            // teaPanelArray.push(teaPanel.teaHTMLObj);
-            var id = ".tea-list-" + teaData[i].category;
-            console.log(id);
-            // id = document.getElementById(id);
-            console.log(id);
-            console.log(teaPanel);
+            
             $("." + teaData[i].category).append(teaPanel);
         }
     }
@@ -91,7 +85,7 @@ $(document).ready(function() {
             $("#menu-content").append(headers[i]);
         }
 
-        showDisplayTeas(obj, headers);
+        showDisplayTeas(obj);
 
 
     }
