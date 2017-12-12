@@ -1,14 +1,18 @@
 $(document).ready(function() {
 
+
+	getDisplayTeas();
+
 	function Tea(teaData) {
     	this.id = teaData.id;
         this.name = teaData.name;
-        // this.nameElement = nameToElement(teaData);
+        this.nameElement = nameToElement(teaData);
         this.priceCup = teaData.priceCup;
         this.pricePot = teaData.pricePot;
         this.priceOz = teaData.priceOz;
         this.description = teaData.description;
-        // this.available = teaData.available;
+        this.category = teaData.category;
+        this.avialbale = teaData.available;
         this.teaTypes = teaData.teaTypes;
         this.teaHTMLObj = teaObjtoHTML(this);
         // this.modalFunction = modalFunction();
@@ -16,16 +20,16 @@ $(document).ready(function() {
 
     function getDisplayTeas() {
 
-        if (areTeasVis === false) {
+        // if (areTeasVis === false) {
 
             $.get('/get/teas').done(function(data) {
 
-
+            	setUpPage(data);
                 showDisplayTeas(data);
             });
 
-            areTeasVis = true;
-        }
+            // areTeasVis = true;
+        // }
     }
 
 
@@ -58,5 +62,25 @@ $(document).ready(function() {
 
         return teaInfo;
     }
+
+    function setUpPage(obj) {
+console.log(obj[0].category);
+    	var headers = [];
+
+    	for (var i = obj.length - 1; i >= 0; i--) {
+    		headers.push(obj[i].category);
+    	}
+
+    	console.log("setUpPage");
+    	console.log(headers);
+    }
+
+    function nameToElement(obj) {
+
+        var elementName = obj.name.replace(/ /g, "-");
+        var elementName = elementName.toLowerCase()
+
+        return elementName;
+    }
 	
-}
+});

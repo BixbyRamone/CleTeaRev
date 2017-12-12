@@ -22,7 +22,8 @@ $(document).ready(function() {
         this.pricePot = teaData.pricePot;
         this.priceOz = teaData.priceOz;
         this.description = teaData.description;
-        // this.available = teaData.available;
+        this.category = teaData.category;
+        this.available = teaData.available;
         this.teaTypes = teaData.teaTypes;
         this.teaHTMLObj = teaObjtoHTML(this); //function for cunstructing dynamic tea-panels
         this.modalFunction = modalFunction();//  function for setting up a modal for the tea item
@@ -91,6 +92,12 @@ $(document).ready(function() {
     }
 
     function postTeas() {
+    	var avail = false;
+    	console.log($("#available-checkbox").val());
+    	if ($("#available-checkbox").val() === "on") {
+    		avail = true;
+    	}
+    	console.log($("#tea-category-input").val().trim());
 
         var teaPostObj = {
             name: $("#tea-name-input").val().trim(),
@@ -98,6 +105,8 @@ $(document).ready(function() {
             pricePot: $("#tea-price-pot-input").val().trim(),
             priceOz: $("#tea-price-oz-input").val().trim(),
             description: $("#tea-descript-input").val().trim(),
+            category: $("#tea-category-input").val().trim(),
+            available: avail,
             teaTypes: $("#tea-types-input").val().trim()
         };
 

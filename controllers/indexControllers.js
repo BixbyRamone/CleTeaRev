@@ -60,7 +60,9 @@ module.exports = {
 			pricePot: req.body.pricePot,
 			priceOz: req.body.priceOz,
 			description: req.body.description,
-			teaTypes: req.body.teaTypes
+			teaTypes: req.body.teaTypes,
+			category: req.body.category,
+			available: req.body.available
 		}).then( function(results) {
 			res.json(results);
 		});
