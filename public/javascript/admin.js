@@ -14,18 +14,28 @@ $(document).ready(function() {
     $(document).on("click", "#edit-tea-button", editTea);
 
     //Function for dynamic category text boxes
-    $(document).on("change", "#category-checkbox-id", testFunction);
+    $(document).on("change", "#category-checkbox-id", checkboxFunctionalirt);
    
-    function testFunction() {
-    	if (this.hasAttribute("checked")) {
-    		this.removeAttribute("checked");
-    	} else {
-    		console.log(this)
-    		// this.attr("href", "www.google.com");
-    	}
-    	console.log("it's working!");
-    	console.log(this.hasAttribute("checked"));
+    function checkboxFunctionalirt() {
+    	//gets the name of the clicked on Element
+    	var header = this.name;
+    	//gets the elements from the tea list by their class name
+    	var elements = document.getElementsByClassName(header);
+    	if (!this.checked) {    		
 
+    		for (var i = 0; i < elements.length; i++) {
+    			console.log(elements[i]);
+    			$(elements[i]).hide();
+    			
+    		}
+    		// elements.hide();
+    	} else if (this.checked) {
+    		for (var i = 0; i < elements.length; i++) {
+    			$(elements[i]).show();
+    		}
+    		
+    	}
+    	
     }
 
 
@@ -53,8 +63,9 @@ $(document).ready(function() {
     function teaObjtoHTML(obj) {
         // construcint html for a tea panel
 
-        var teaInfo = '<li class="list-group-item">';
+        var teaInfo = '<li class="list-group-item '+ obj.category + '">';
         teaInfo += '<div class="col-md-6">name: ' + obj.name + ';	id#: ' + obj.id + '<br> ';
+        teaInfo += 'Category: ' + obj.category + ' <br> ';
         teaInfo += 'price per cup: ' + obj.priceCup + ' <br> ';
         teaInfo += 'price per pot: ' + obj.pricePot + ' <br> ';
         teaInfo += 'price per oz: ' + obj.priceOz + ' <br> ';
