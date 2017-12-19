@@ -123,16 +123,35 @@
         <button id="add-item-button"> Submit </button>
 	<div id="cut-thru"></div>
         <br>
-        <form id="chkbx-menu">
+        
+        
+    </div>
+    <br>
+    <!-- <div class="container">
+	<form class="row">
+		<input class="col-md-3" type="text" name="tea-name" placeholder="Name of Tea">
+		<input class="col-md-3" type="text" name="tea-price" placeholder="Price of Tea">
+		<input class="col-md-3" type="textbox" name="tea-description" placeholder="Full description">
+		<input class="col-md-3" type="text" name="tea-types" placeholder="Types of tea, separted by commas">
+	</form>
+
+</div> -->
+    <br>
+    <!-- Tea Display -->
+    <div class="container">
+
+    	<div class="row">
+		<!--  -->
+			<form id="chkbx-menu" class="col-md-2">
                 
-                <input type="checkbox" name="Tea" value="White">White
-                <input type="checkbox" name="Tea" value="Green">Green
-                <input type="checkbox" name="Tea" value="Oolong">Oolong
-                <input type="checkbox" name="Tea" value="Flavored">Flavored
-                <input type="checkbox" name="Tea" value="Black">Black
-                <input type="checkbox" name="Tea" value="Puerh">Puerh
-                <input type="checkbox" name="Tea" value="Herbal">Herbal
-                <input type="checkbox" name="Tea" value="Blends">Blends
+                <!-- <input type="checkbox" name="Tea" id="White-checkbox" checked>White
+                <input type="checkbox" name="Tea" id="Green-checkbox" checked>Green
+                <input type="checkbox" name="Tea" id="Oolong-checkbox" checked>Oolong
+                <input type="checkbox" name="Tea" id="Flavored-checkbox" checked>Flavored
+                <input type="checkbox" name="Tea" id="Black-checkbox" checked>Black
+                <input type="checkbox" name="Tea" id="Puerh-checkbox" checked>Puerh
+                <input type="checkbox" name="Tea" id="Herbal-checkbox" checked>Herbal
+                <input type="checkbox" name="Tea" id="Blends-checkbox" checked>Blends -->
 
 
                 <!-- <input type="checkbox" name="Tea" value="assam">assam<br>
@@ -168,23 +187,15 @@
                 <input type="checkbox" name="Tea" value="tumeric">
                 <input type="checkbox" name="Tea" value="valerian root">
                 <input type="checkbox" name="Tea" value="vanilla">
-                <input type="checkbox" name="Tea" value="yerba mate">           -->      
-            </form>
-        
-    </div>
-    <br>
-    <!-- <div class="container">
-	<form class="row">
-		<input class="col-md-3" type="text" name="tea-name" placeholder="Name of Tea">
-		<input class="col-md-3" type="text" name="tea-price" placeholder="Price of Tea">
-		<input class="col-md-3" type="textbox" name="tea-description" placeholder="Full description">
-		<input class="col-md-3" type="text" name="tea-types" placeholder="Types of tea, separted by commas">
-	</form>
+                <input type="checkbox" name="Tea" value="yerba mate">           -->     
 
-</div> -->
-    <br>
-    <!-- Tea Display -->
-    <div class="container">
+            <form class="tea-type-menu"> 
+            	
+            </form> 
+            </form>
+
+            
+    	<!--  -->
         <div class="panel pael-primary">
             <div class="row panel-heading" id="tea-container">
                 <ul class="list-group" id="tea-list">
@@ -192,6 +203,7 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>
