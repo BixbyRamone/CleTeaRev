@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	$(document).on("change", "#category-checkbox-id", checkboxFunctionalirt);
+   
 
     getDisplayTeas();
 
@@ -34,15 +36,17 @@ $(document).ready(function() {
 
 
     function showDisplayTeas(teaData) {
-    	// var teaPanelArray = [];
-
+    	console.log(teaData);
+    
         $('#tea-list').empty();
         $('#add-tea-bar').show();
 
         for (var i = 0; i < teaData.length; i++) {
             var teaPanel = new Tea(teaData[i]);
             teaPanel = teaPanel.teaHTMLObj;
-            
+
+            console.log(teaPanel);
+
             $("." + teaData[i].category).append(teaPanel);
         }
     }
@@ -66,32 +70,48 @@ $(document).ready(function() {
     }
 
     function setUpPage(obj) {
-        console.log(obj[0].category);
         var headers = [];
+        var htmlElementArray = [];
 
+//	Creates the names of the headings to go onto the page; pushes them into array var headers
         for (var i = obj.length - 1; i >= 0; i--) {
-        	console.log(obj[i].category);
-        	console.log(headers.indexOf(obj[i].category));
+
         	if (headers.indexOf(obj[i].category) === -1) {
             headers.push(obj[i].category);
         }
         }
 
-        console.log("setUpPage");
         console.log(headers);
 
+// G
         for (var i = headers.length - 1; i >= 0; i--) {
-            headers[i] = headers[i] + '<div class="list-group ' + headers[i] + '" id="tea-list-' +headers[i]+ ' "></div>'
+            htmlElementArray[i] = '<div class="html-el-' + headers[i] + '" id="tea-header"</div>' + headers[i] + '<div class="list-group ' + headers[i] + '" id="tea-list-' +headers[i]+ ' "></div><br>'
         }
-        console.log(headers);
 
-        for (var i = headers.length - 1; i >= 0; i--) {
-            $("#menu-content").append(headers[i]);
+
+        console.log(htmlElementArray);
+
+        for (var i = htmlElementArray.length - 1; i >= 0; i--) {
+            $("#menu-content").prepend(htmlElementArray[i]);
         }
 
         showDisplayTeas(obj);
+        console.log(headers);
+        categoriesToCheckboxes(headers);
+
+    }
+
+    function categoriesToCheckboxes(array) {
+    	// console.log(array.classList);
+    	var checkbox = '';
 
 
+    	for (var i = 0; i < array.length; i++) {
+    		// console.log(array[i]);
+    		checkbox = '<input type="checkbox" name="' + array[i] + '" id="category-checkbox-id" checked>' + array[i].toUpperCase() + '<br>';
+    		// console.log(checkbox);
+    		$(".tea-types-form").append(checkbox);
+    	}
     }
     
 
@@ -104,5 +124,24 @@ $(document).ready(function() {
     }
 
 
+    function checkboxFunctionalirt() {
+    	//gets the name of the clicked on Element
+    	
+    	var headerId = this.name;
+    	//gets the elements from the tea list by their class name
+    	// var elements = document.getElementsByClassName(header);
+    	if (!this.checked) {
+    			
+    			$("." + headerId).hide(500);
+    			$(".html-el-" + headerId).hide(500);				
+
+    	} else if (this.checked) {
+    		
+    			$("." + headerId).show(500);
+    			$(".html-el-" + headerId).show(500);		
+    		
+    	}
+    	
+    }
 
 });

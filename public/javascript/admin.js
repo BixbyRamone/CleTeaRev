@@ -25,13 +25,13 @@ $(document).ready(function() {
 
     		for (var i = 0; i < elements.length; i++) {
     			console.log(elements[i]);
-    			$(elements[i]).hide();
+    			$(elements[i]).hide(500);
     			
     		}
     		// elements.hide();
     	} else if (this.checked) {
     		for (var i = 0; i < elements.length; i++) {
-    			$(elements[i]).show();
+    			$(elements[i]).show(500);
     		}
     		
     	}
