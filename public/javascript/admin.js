@@ -12,32 +12,7 @@ $(document).ready(function() {
 
     $(document).on("click", "#delete-button", deleteTea);
     $(document).on("click", "#edit-tea-button", editTea);
-
-    //Function for dynamic category text boxes
-    $(document).on("change", "#category-checkbox-id", checkboxFunctionalirt);
-   
-    function checkboxFunctionalirt() {
-    	//gets the name of the clicked on Element
-    	var header = this.name;
-    	//gets the elements from the tea list by their class name
-    	var elements = document.getElementsByClassName(header);
-    	if (!this.checked) {    		
-
-    		for (var i = 0; i < elements.length; i++) {
-    			console.log(elements[i]);
-    			$(elements[i]).hide(500);
-    			
-    		}
-    		// elements.hide();
-    	} else if (this.checked) {
-    		for (var i = 0; i < elements.length; i++) {
-    			$(elements[i]).show(500);
-    		}
-    		
-    	}
-    	
-    }
-
+    $(document).on("change", "#category-checkbox-id", checkboxFunction);
 
     //======================Constructor Stuff==============
     //    Creates  a constructor to handle tea info on front end
@@ -61,9 +36,8 @@ $(document).ready(function() {
     //===============Code For Dynamic Buttons
 
     function teaObjtoHTML(obj) {
-        // construcint html for a tea panel
 
-        var teaInfo = '<li class="list-group-item '+ obj.category + '">';
+        var teaInfo = '<li class="list-group-item ' + obj.category + '">';
         teaInfo += '<div class="col-md-6">name: ' + obj.name + ';	id#: ' + obj.id + '<br> ';
         teaInfo += 'Category: ' + obj.category + ' <br> ';
         teaInfo += 'price per cup: ' + obj.priceCup + ' <br> ';
@@ -81,7 +55,7 @@ $(document).ready(function() {
     }
 
     function appendDeleteButton(display, thisTea) {
-        // info for appending buttons and associated modal info
+
         display += '<div class="row">'
         display += '<button name="' + thisTea.nameElement + '-delete" id="delete-button" class="' + thisTea.nameElement + ' col-sm-6 ng-change">DELETE</button>';
         display += '<button name="' + thisTea.nameElement + '-edit" id="edit-tea-button" class="' + thisTea.nameElement + ' col-sm-6">EDIT</button>';
@@ -97,16 +71,8 @@ $(document).ready(function() {
     }
 
     function checkboxHTMLFunction(obj) {
-    	var checkbox = '<input type="checkbox" name="' + obj.category + '" id="category-checkbox-id" checked>' + obj.category.toUpperCase() + '<br>';
+        var checkbox = '<input type="checkbox" name="' + obj.category + '" id="category-checkbox-id" checked>' + obj.category.toUpperCase() + '<br>';
 
-    	// if (checkboxArray.indexOf(checkbox) === -1) {
-    	// 	checkboxArray.push(checkbox);
-    	// }
-    	// console.log("checkboxArray");
-    	// console.log(checkboxArray);
-        // <input type="checkbox" name="Tea" id="White-checkbox" checked>
-
-        
         return checkbox;
     }
 
@@ -135,29 +101,25 @@ $(document).ready(function() {
             var teaPanel = new Tea(teaData[i]);
             if ($('#tea-list').append(teaPanel.teaHTMLObj) === "on") {
                 $('#tea-list').append(teaPanel.teaHTMLObj);
-            
+            }
 
-                	}
-                	placeCheckboxes(teaPanel);
+            placeCheckboxes(teaPanel);
         }
     }
 
     function placeCheckboxes(obj) {
-    	$('#chkbx-menu').empty();
-    	$('#chkbx-menu').append("Catergories" + '<br>')
+        $('#chkbx-menu').empty();
+        $('#chkbx-menu').append("Catergories" + '<br>')
 
-    	if (checkboxArray.indexOf(obj.checkboxHTML) === -1) {
-    		checkboxArray.push(obj.checkboxHTML);
-    	}
-    	// console.log("checkboxArray");
-    	// console.log(checkboxArray);
+        if (checkboxArray.indexOf(obj.checkboxHTML) === -1) {
+            checkboxArray.push(obj.checkboxHTML);
+        }
 
-    	for (var i = checkboxArray.length - 1; i >= 0; i--) {
-    		$('#chkbx-menu').append(checkboxArray[i]);
-    	}
 
-    	// checkboxJavascript(obj);
-    	
+        for (var i = checkboxArray.length - 1; i >= 0; i--) {
+            $('#chkbx-menu').append(checkboxArray[i]);
+        }
+
     }
 
     function postTeas() {
@@ -177,12 +139,11 @@ $(document).ready(function() {
             teaTypes: $("#tea-types-input").val().trim()
         };
 
-        // console.log(teaPostObj);
-        // console.log(window.location);
-        $.post("/post/tea", teaPostObj, function() {
+        if (teaPostObj.name) {
+        	$.post("/post/tea", teaPostObj, function() {
 
             getDisplayTeas();
-            // console.log($(document));
+
         });
 
         $("#tea-name-input").val('');
@@ -193,22 +154,24 @@ $(document).ready(function() {
         $("#tea-types-input").val('');
         $("#tea-category-input").val('');
 
-        // areTeaVis = false;
         getDisplayTeas();
+        } else {
+        	alert("Please Enter Data");
+        }
+        
 
 
     }
 
     function deleteTea() {
-        // console.log(this.name);
+
         var htmlObject = modalFunction(this.name);
         htmlObject = modalClickExtension(htmlObject);
 
     }
 
     function editTea() {
-        console.log("EDIT");
-        // console.log(this.name);
+
         var htmlObject = modalFunction(this.name);
         modalClickExtension(htmlObject);
 
@@ -220,7 +183,6 @@ $(document).ready(function() {
 
         // Get the modal
         htmlObj.modal = document.getElementById(idParam + "-modal");
-
 
         // Get the button that opens the modal
         htmlObj.btn = document.getElementsByName(idParam)[0];
@@ -240,20 +202,16 @@ $(document).ready(function() {
         return elementName;
     }
 
-    function showModalBox(obj) {
 
-        obj.modal.style.display = "block";
-
-    }
 
     function checkboxJavascript(teaObj) {
-    	console.log("checkbox Javascript");
-    	console.log(teaObj);
+        // console.log("checkbox Javascript");
+        // console.log(teaObj);
     }
 
     function modalClickExtension(obj) {
-        // automatically expands modal, since button has been clicked.
-        showModalBox(obj);
+
+        obj.modal.style.display = "block";
         // When the user clicks on <span> (x), close the modal
         $(document).on('click', ".close", function() {
 
@@ -261,7 +219,7 @@ $(document).ready(function() {
         });
 
         $(document).on('click', '#add-item-modal-button', function() {
-        	// put in code for updating the tea item
+            // put in code for updating the tea item
 
         });
 
@@ -273,6 +231,27 @@ $(document).ready(function() {
                 obj.modal.style.display = "none";
             }
         }
+    }
+
+    function checkboxFunction() {
+
+        var header = this.name;
+        //gets the elements from the tea list by their class name
+        var elements = document.getElementsByClassName(header);
+        if (!this.checked) {
+
+            for (var i = 0; i < elements.length; i++) {
+                $(elements[i]).hide(500);
+
+            }
+            // elements.hide();
+        } else if (this.checked) {
+            for (var i = 0; i < elements.length; i++) {
+                $(elements[i]).show(500);
+            }
+
+        }
+
     }
 
 });

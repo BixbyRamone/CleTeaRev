@@ -1,6 +1,6 @@
 let indexController = require("../controllers/indexControllers.js");
 
-module.exports = function(app) {
+module.exports = function(app, passport) {
 	// HTML routes
 
 	app.get("/admin", indexController.admin),
@@ -11,6 +11,11 @@ module.exports = function(app) {
 	// API routes
 	app.get("/get/teas", indexController.getTeas),
 	app.post("/post/tea", indexController.addTea),
-	app.put("/update/tea", indexController.updateTea)
+	app.put("/update/tea", indexController.updateTea),
+  	app.get("/api/user", indexController.getUserInfo),
+
+	// Passport Routes
+	app.post("/signup", passport.authenticate('local-signup'), indexController.signup),
+	app.post('/signin', passport.authenticate('local-signin'), indexController.signin)
 
 };

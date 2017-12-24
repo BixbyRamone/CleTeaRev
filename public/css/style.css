@@ -87,8 +87,13 @@ h1 {
   }
 
 .login-head {
-	float: right;
-	font-size: 20px;
+	/*float: left;*/
+	/*font-size: 20px;*/
+}
+
+.register-head {
+	/*float: right;*/
+	/*font-size: 20px;*/
 }
 
 .nav-buttons {
@@ -193,6 +198,32 @@ ul > li > a {
     cursor: pointer;
 }
 
+.btn-primary {
+    line-height: normal;
+    /*-webkit-border-radius: 8px;*/
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: #fcc59f;
+    background-image: none;
+    border: none;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-decoration: none ! important;
+    text-shadow: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+}
+
+.btn-primary:hover {
+    background: #ffa566;
+    color: #fff;
+}
+
+.modal > div > div {
+	background: rgb(242, 247, 255);
+}
 
 /*.delete-button {
 	float: left;

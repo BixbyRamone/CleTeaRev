@@ -28,8 +28,6 @@ app.use(logger('dev'));
 // Override with POST 
 app.use(methodOverride("_method"));	
 
-let index = require('./routes/index.js')(app);
-
 //Middleware
 app.use(express.static('./public'));
 app.use(cookieParser());
@@ -37,11 +35,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+
+//passport
+app.use(session({
+    secret: process.env.SECRET,
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(passport.initialize());
 
 app.use(passport.session());
-
+require('./config/passport/passport.js')(passport, db.User);
 //---------------------------------------------
+let index = require('./routes/index.js')(app, passport);
+
+//-------------------------
 
 db.sequelize.sync(
 	// {force:true}

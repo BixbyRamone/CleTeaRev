@@ -1,8 +1,26 @@
+/*
+$(document).ready(function() {
+
+    	console.log("script");
+
+    	function getUser() {-
+		$.get("/api/user", function(data) {
+			if(!data.admin) {
+				console.log("no data");
+			}
+			console.log("data");
+			console.log(data);
+		});
+		getUser();
+	}
+	}
+*/
+
 $(document).ready(function() {
 
 	$(document).on("change", "#category-checkbox-id", checkboxFunction);
    
-
+	getUser();
     getDisplayTeas();
 
     function Tea(teaData) {
@@ -19,6 +37,16 @@ $(document).ready(function() {
         this.teaHTMLObj = teaObjtoHTML(this);
         // this.modalFunction = modalFunction();
     }
+
+    function getUser() {
+		$.get("/api/user", function(data) {
+			if(!data.admin) {
+				console.log("no data");
+			}
+			console.log("data");
+			console.log(data);
+		});
+	}
 
     function getDisplayTeas() {
 

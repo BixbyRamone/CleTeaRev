@@ -87,5 +87,39 @@ module.exports = {
 		});
 	},
 
+	signup: function(req, res) {
+		if( req.session.invite_inviteCode ){
+			if( req.xhr ){
+		    	res.json({ successRedirect: '/index.html' });
+			} else {
+		    	res.redirect('/index.html');
+			}
+		} else {
+			res.redirect('/index.html');
+		}
+	},
+
+	getUserInfo: function(req, res) {
+		db.User.findOne({
+			where: {
+				id: req.user.id
+			}
+		}).then( results => {
+			res.json(results);
+		});
+	},
+
+	signin: function(req, res) {
+		if( req.session.invite_inviteCode ){
+			if( req.xhr ){
+		    	res.json({ successRedirect: '/index.html' });
+			} else {
+		    	res.redirect('/index.html');
+			}
+		} else {
+		  res.redirect('/index.html');
+		}
+	}
+
 	// getTeaTypes
 }
