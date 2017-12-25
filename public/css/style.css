@@ -129,14 +129,33 @@ footer > div > div > ul {
 }
 
 /*dropdown menu text*/
-ul > li > a {
+.btn-group > ul > li > a {
 	font-size: 18px;
 	margin-left: 10px;
 	color: black;
 	/*width: 200px;*/
 }
 
-
+.nametag-drop {
+	/*color: red;
+	background: #fcc59f;
+	background-image: none;*/
+	line-height: normal;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: rgb(242, 247, 255);
+    background-image: none;
+    border: none;
+    color: black;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-decoration: none ! important;
+    text-shadow: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+}
 
 #tea-types-col {
 	border-color: black;
