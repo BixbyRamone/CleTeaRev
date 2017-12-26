@@ -1,21 +1,3 @@
-/*
-$(document).ready(function() {
-
-    	console.log("script");
-
-    	function getUser() {-
-		$.get("/api/user", function(data) {
-			if(!data.admin) {
-				console.log("no data");
-			}
-			console.log("data");
-			console.log(data);
-		});
-		getUser();
-	}
-	}
-*/
-
 $(document).ready(function() {
 
 	$(document).on("change", "#category-checkbox-id", checkboxFunction);

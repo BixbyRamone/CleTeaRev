@@ -16,6 +16,7 @@ module.exports = function(app, passport) {
 
 	// Passport Routes
 	app.post("/signup", passport.authenticate('local-signup'), indexController.signup),
-	app.post('/signin', passport.authenticate('local-signin'), indexController.signin)
+	app.post('/signin', passport.authenticate('local-signin'), indexController.signin),
+	app.get("/logout", indexController.logout)
 
 };

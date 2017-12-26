@@ -244,6 +244,24 @@ footer > div > div > ul {
 	background: rgb(242, 247, 255);
 }
 
+#menu-title {
+	font-family: 'Slabo 27px', serif;
+	font-size: 35px;
+	font-style: bold;
+	text-align: center;
+}
+
+#tea-header {
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+.list-group-item {
+	text-align: left;
+	font-size: 18px;
+	text-transform: none;
+}
+
 /*.delete-button {
 	float: left;
 }*/

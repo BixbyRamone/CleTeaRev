@@ -119,6 +119,12 @@ module.exports = {
 		} else {
 		  res.redirect('/index.html');
 		}
+	},
+
+	logout: function(req, res) {
+		req.session.destroy(function (err) {
+    res.redirect('/index.html'); 
+		});
 	}
 
 	// getTeaTypes

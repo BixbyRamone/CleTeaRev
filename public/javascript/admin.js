@@ -36,6 +36,7 @@ $(document).ready(function() {
     //===============Code For Dynamic Buttons
 
     function teaObjtoHTML(obj) {
+    	var availability = availFunction(obj.available);
 
         var teaInfo = '<li class="list-group-item ' + obj.category + '">';
         teaInfo += '<div class="col-md-6">name: ' + obj.name + ';	id#: ' + obj.id + '<br> ';
@@ -45,7 +46,7 @@ $(document).ready(function() {
         teaInfo += 'price per oz: ' + obj.priceOz + ' <br> ';
         teaInfo += 'description: ' + obj.description + ' <br> ';
         teaInfo += 'tea types: ' + obj.teaTypes + '<br>';
-        teaInfo += 'availability: ' + "temp text" + ' <br> ';
+        teaInfo += 'availability: ' + availability + ' <br> ';
         teaInfo += '<img class="col-md-12 " src="https://static1.squarespace.com/static/5254245de4b0d49865bf2ad0/551db655e4b0c1bae096e600/551db6e9e4b0a007421e8164/1428010733370/golden+assam.jpg?format=500w">';
         teaInfo = appendDeleteButton(teaInfo, obj); // see below
         teaInfo += '</li>';
@@ -124,7 +125,8 @@ $(document).ready(function() {
 
     function postTeas() {
         var avail = false;
-        if ($("#available-checkbox").val() === "on") {
+        console.log($("#available-checkbox").prop("checked"));
+        if ($("#available-checkbox").prop("checked")) {
             avail = true;
         }
 
@@ -252,6 +254,15 @@ $(document).ready(function() {
 
         }
 
+    }
+
+    function availFunction(data) {
+
+        if (data) {
+            return "available";
+        } else {
+            return "currently out of stock";
+        }
     }
 
 });

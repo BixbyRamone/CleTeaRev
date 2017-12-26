@@ -34,7 +34,7 @@ $(document).ready(function() {
 
 	function appendDropdown(name) {
 		$("#signed-in").html("");
-		$("#signed-in").append('<div class="nametag-drop"><button type="" class="btn nametag-drop dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + name + '<span class="caret"></span></button><ul class="dropdown-menu"><li role="separator" class="divider"></li><li><a href="/store.html">My Account</a></li><li role="separator" class="divider"></li><li><a href="/menu.html">My Purchases</a></li><li role="separator" class="divider"></li><li class="log-out"><a href="/index.html">Logout</a></li></ul></div> ');
+		$("#signed-in").append('<div class="nametag-drop"><button type="" class="btn nametag-drop dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + name + '<span class="caret"></span></button><ul class="dropdown-menu"><li role="separator" class="divider"></li><li><a href="/account.html">My Account</a></li><li role="separator" class="divider"></li><li><a href="/purchases.html">My Purchases</a></li><li role="separator" class="divider"></li><li class="log-out"><a href="">Logout</a></li></ul></div> ');
 	}
 
 	function logoutFunc() {

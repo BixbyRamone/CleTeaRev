@@ -14,24 +14,19 @@ $(document).ready(function() {
         this.priceOz = teaData.priceOz;
         this.description = teaData.description;
         this.category = teaData.category;
-        this.avialbale = teaData.available;
+        this.available = teaData.available;
         this.teaTypes = teaData.teaTypes;
         this.teaHTMLObj = teaObjtoHTML(this);
-        // this.modalFunction = modalFunction();
     }
 
     function getDisplayTeas() {
 
-        // if (areTeasVis === false) {
-
         $.get('/get/teas').done(function(data) {
 
             setUpPage(data);
-            // showDisplayTeas(data);
+
         });
 
-        // areTeasVis = true;
-        // }
     }
 
 
@@ -45,23 +40,29 @@ $(document).ready(function() {
             teaPanel = teaPanel.teaHTMLObj;
 
             $("." + teaData[i].category).append(teaPanel);
+            // $("." + teaData[i].category).append("<b>Append</b>");   
         }
     }
 
     function teaObjtoHTML(obj) {
         // construcint html for a tea panel
+        var availability = availFunction(obj.available);
 
-        var teaInfo = '<li class="list-group-item">';
-        teaInfo += '<div class="col-md-6">name: ' + obj.name + '<br> ';
+        var teaInfo = '<div class="list-group-item">';
+        teaInfo += '<div class="col-md-8">name: ' + obj.name + '<br> ';
         teaInfo += 'price per cup: ' + obj.priceCup + ' <br> ';
         teaInfo += 'price per pot: ' + obj.pricePot + ' <br> ';
         teaInfo += 'price per oz: ' + obj.priceOz + ' <br> ';
         teaInfo += 'description: ' + obj.description + ' <br> ';
         teaInfo += 'tea types: ' + obj.teaTypes + '<br>';
-        teaInfo += 'availability: ' + "temp text" + ' <br> ';
+        if (availability !== null) {
+            teaInfo += 'availability: ' + availability + ' <br> ';
+        } else {
+            teaInfo += "<br>"
+        }
+        
         teaInfo += '<img class="col-md-12 " src="https://static1.squarespace.com/static/5254245de4b0d49865bf2ad0/551db655e4b0c1bae096e600/551db6e9e4b0a007421e8164/1428010733370/golden+assam.jpg?format=500w">';
-        // teaInfo = appendDeleteButton(teaInfo, obj);// see below
-        teaInfo += '</li>';
+        teaInfo += '</div>';
 
         return teaInfo;
     }
@@ -79,7 +80,6 @@ $(document).ready(function() {
         }
 
 
-// G
         for (var i = headers.length - 1; i >= 0; i--) {
             htmlElementArray[i] = '<div class="html-el-' + headers[i] + '" id="tea-header"</div>' + headers[i] + '<div class="list-group ' + headers[i] + '" id="tea-list-' +headers[i]+ ' "></div><br>'
         }
@@ -133,6 +133,15 @@ $(document).ready(function() {
     		
     	}
     	
+    }
+
+    function availFunction(data) {
+
+        if (data) {
+            return null;
+        } else {
+            return "currently out of stock";
+        }
     }
 
 });
