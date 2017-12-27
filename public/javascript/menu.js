@@ -70,6 +70,7 @@ $(document).ready(function() {
     function setUpPage(obj) {
         var headers = [];
         var htmlElementArray = [];
+        var typeHeaders = typeHeadersFunction(obj);
 
 //	Creates the names of the headings to go onto the page; pushes them into array var headers
         for (var i = obj.length - 1; i >= 0; i--) {
@@ -142,6 +143,31 @@ $(document).ready(function() {
         } else {
             return "currently out of stock";
         }
+    }
+
+    function typeHeadersFunction(data) {
+
+        console.log("naw");
+        // var headers = [];
+        // var item = "";
+        // var itemArray = [];
+
+        // // console.log(data);
+
+        // for (var i = 0; i < data.length; i++) {
+        //     if (data[i].description.indexOf("-") !== -1 ) {
+        //         item = data[i].description.split("-");
+        //         // console.log(item);
+        //         item = item[1].split(",");
+        //         // console.log(item);
+        //         for (var j = 0; j < item.length; j++) {
+        //             itemArray.push(item[j]);
+        //             // console.log(item[j]);
+        //         }
+        //         console.log(itemArray);
+        //     }
+            
+        // }
     }
 
 });
