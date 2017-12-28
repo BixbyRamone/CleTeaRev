@@ -1,15 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
 
     var searchTerm = sequelize.define("searchTerm", {
-        timestamps: false,
-
+        
         term: {
+            timestamps: false,
             type: DataTypes.STRING
         }
        
-    });
-
-   
+    });   
 
     return searchTerm;
 

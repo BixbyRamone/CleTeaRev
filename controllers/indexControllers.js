@@ -42,11 +42,8 @@ module.exports = {
 
 	//API routes
 	getTeas: function(req, res) {
-		db.Tea.findAll({
-			// where: {
-			// 	id: 1
-			// }
-		}).then( function(results) {
+		db.Tea.findAll({})
+		.then( function(results) {
 			// console.log(res.);
 			// console.log("*******************************")
 			res.json(results);
@@ -125,6 +122,21 @@ module.exports = {
 		req.session.destroy(function (err) {
     res.redirect('/index.html'); 
 		});
+	},
+
+	getAdminSearchTerms: function(req, res) {
+		db.SearchTerm.findAll({})
+		.then(function(results) {
+			res.json(results);
+		});
+	},
+
+	postAdminSearchTerms: function(req, res) {
+		db.SearchTerm.create({
+			name: req.body.searchTerm
+		}).then(function(results) {
+			res.json(results);
+		})
 	}
 
 	// getTeaTypes

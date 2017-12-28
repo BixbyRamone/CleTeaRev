@@ -1,6 +1,10 @@
 $(document).ready(function() {
 
+
+	$('#search-items-list').hide();
+	$('#search-items-input').hide();
     $('#view-search-terms').on("click", getDisplaySearchTerms);
+    $('#add-search-term').on("click", postSearchTerm);
 
 
      //======================Constructor Stuff==============
@@ -24,15 +28,35 @@ $(document).ready(function() {
 
     function getDisplaySearchTerms() {
 
+    	$('#search-items-list').show();
+		$('#search-items-input').show();
+
+
+
     	$.get('/get/teas').done(function(teaData) {
 
-    		var headersArray = [];
+    		dynamicSearchTermsFunc(teaData);
 
-    		for (var i = 0; i < teaData.length; i++) {
-    			headersArray.push(teaData[i].category);
-    			console.log(headersArray);
-    		}
+    		$.get('/get/searchterms').done(function(searchTerms) {
+    			console.log(searchterms);
+
+    		})
+
+    		
+
+
 
     	});
+    }
+
+    function dynamicSearchTermsFunc(teaData) {
+    	var headersArray = [];
+
+    		for (var i = 0; i < teaData.length; i++) {
+    			if (headersArray.indexOf(teaData[i].category) === -1) {
+		    			headersArray.push(teaData[i].category);
+    			}
+
+    		}
     }	
 })
