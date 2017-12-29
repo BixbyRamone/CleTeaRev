@@ -124,19 +124,19 @@ module.exports = {
 		});
 	},
 
-	getAdminSearchTerms: function(req, res) {
+	getAdminSearchTerm: function(req, res) {
 		db.SearchTerm.findAll({})
 		.then(function(results) {
 			res.json(results);
 		});
 	},
 
-	postAdminSearchTerms: function(req, res) {
-		db.SearchTerm.create({
-			name: req.body.searchTerm
+	postAdminSearchTerm: function(req, res) {
+		db.searchTerm.create({
+			term: req.body.term
 		}).then(function(results) {
 			res.json(results);
-		})
+		});
 	}
 
 	// getTeaTypes

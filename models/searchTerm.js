@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     var searchTerm = sequelize.define("searchTerm", {
         
         term: {
-            timestamps: false,
+            // timestamps: false,
             type: DataTypes.STRING
         }
        

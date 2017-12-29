@@ -13,8 +13,8 @@ module.exports = function(app, passport) {
 	app.post("/post/tea", indexController.addTea),
 	app.put("/update/tea", indexController.updateTea),
   	app.get("/api/user", indexController.getUserInfo),
-  	app.post("/post/searchterms", indexController.postAdminSearchTerms),
-  	app.get("/get/searchterms", indexController.getAdminSearchTerms),
+  	app.post("/post/searchterm", indexController.postAdminSearchTerm),
+  	app.get("/get/searchterms", indexController.getAdminSearchTerm),
 
 	// Passport Routes
 	app.post("/signup", passport.authenticate('local-signup'), indexController.signup),

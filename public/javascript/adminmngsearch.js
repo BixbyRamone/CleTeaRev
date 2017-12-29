@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$('#search-items-list').hide();
 	$('#search-items-input').hide();
     $('#view-search-terms').on("click", getDisplaySearchTerms);
-    $('#add-search-term').on("click", postSearchTerm);
+    $('#add-search-term-button').on("click", postSearchTerm);
 
 
      //======================Constructor Stuff==============
@@ -58,5 +58,24 @@ $(document).ready(function() {
     			}
 
     		}
+    }
+
+    function postSearchTerm() {
+    	    	console.log("button pressed");
+
+
+    	var postVar ={
+    		term: $('#search-item-input-text-field').val().trim()
+    	};
+    	console.log(postVar);
+
+    	if (postVar.term !== null) {
+    		$.post('/post/searchterm', postVar, function() {
+
+    			console.log("posted");
+
+    		});	
+    	}
+    	
     }	
 })
