@@ -34,16 +34,17 @@ $(document).ready(function() {
     	$('#tea-list').empty();
 		// $('#search-items-input').show();
 
-		
-	    	$.get('/get/searchterms').done(function(data) {
-	    			console.log("callback")
-	    			displaySearchTerms(data);
-	    		});
+
+	    	
 
 
     	$.get('/get/teas').done(function(teaData) {
 
     		dynamicSearchTermsFunc(teaData);
+    		$.get('/get/searchterms').done(function(data) {
+	    			console.log("callback")
+	    			displaySearchTerms(data);
+	    		});
 
     	});
 
@@ -55,12 +56,22 @@ $(document).ready(function() {
 
     function dynamicSearchTermsFunc(teaData) {
     	var headersArray = [];
+    	var headerHTMLArray = [];
 
     		for (var i = 0; i < teaData.length; i++) {
     			if (headersArray.indexOf(teaData[i].category) === -1) {
 		    			headersArray.push(teaData[i].category);
     			}
 
+    		}
+
+    		for (var i = 0; i < headersArray.length; i++) {
+    			var el = '<li class="list-items-search">' + headersArray[i] + '</li>';
+    			headerHTMLArray.push(el);
+    		}
+
+    		for (var i = 0; i < headerHTMLArray.length; i++) {
+    			$("#dynamimc-search-items-list").append(headerHTMLArray[i]);
     		}
     		console.log(headersArray);
     }
@@ -82,11 +93,20 @@ $(document).ready(function() {
 
    function displaySearchTerms(data) {
    	console.log("displaySearchTerms");
-   	console.log(data);
+   	console.log(data[0]);
+   	var htmElementArray = [];
 
    	for (var i = 0; i < data.length; i++) {
-   		console.log(data[i]);
-   		$('#search-items-list').append.data[i];
+   		console.log(data[i].term);
+
+   		var el = '<li class="list-items-search">' + data[i].term + ' <button id="remove-term-button" name="' + data[i].term + '-remove-term">x</button></li>';
+
+   		htmElementArray.push(el);
+   		// $('#search-items-list').append(data[i].term);
+   	}
+
+   	for (var i = 0; i < htmElementArray.length; i++) {
+   		$('#search-items-list').append(htmElementArray[i]);
    	}
    }	
 })

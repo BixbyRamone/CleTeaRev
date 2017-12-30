@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-    var SearchTerm = sequelize.define("searchTerm", {
+    var SearchTerm = sequelize.define("SearchTerm", {
         
         term: {
             type: DataTypes.STRING,

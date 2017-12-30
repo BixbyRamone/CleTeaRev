@@ -125,8 +125,8 @@ module.exports = {
 	},
 
 	getAdminSearchTerms: function(req, res) {
-		db.SearchTerm.findAll({})
-		.then(function(results) {
+		db.SearchTerm.findAll({
+		}).then(function(results) {
 			console.log(results);
 			res.json(results);
 		});
