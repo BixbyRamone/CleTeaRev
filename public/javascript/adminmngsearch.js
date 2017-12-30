@@ -42,7 +42,6 @@ $(document).ready(function() {
 
     		dynamicSearchTermsFunc(teaData);
     		$.get('/get/searchterms').done(function(data) {
-	    			console.log("callback")
 	    			displaySearchTerms(data);
 	    		});
 
@@ -78,13 +77,17 @@ $(document).ready(function() {
 
     function postSearchTerm() {
 
+    	$('#search-items-list').empty();
+
     	var postVar ={
     		term: $('#search-item-input-text-field').val().trim()
     	};
 
     	if (postVar.term !== null) {
     		$.post('/post/searchterm', postVar, function() {
-
+    			$.get('/get/searchterms').done(function(data) {
+	    			displaySearchTerms(data);
+	    		});
     			$('#search-item-input-text-field').val('');
     		});	
     	}
