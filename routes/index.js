@@ -14,7 +14,7 @@ module.exports = function(app, passport) {
 	app.put("/update/tea", indexController.updateTea),
   	app.get("/api/user", indexController.getUserInfo),
   	app.post("/post/searchterm", indexController.postAdminSearchTerm),
-  	app.get("/get/searchterms", indexController.getAdminSearchTerm),
+  	app.get("/get/searchterms", indexController.getAdminSearchTerms),
 
 	// Passport Routes
 	app.post("/signup", passport.authenticate('local-signup'), indexController.signup),

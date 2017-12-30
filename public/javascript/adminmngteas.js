@@ -81,6 +81,9 @@ $(document).ready(function() {
 
     // function for getting teas from db
     function getDisplayTeas() {
+            $('#search-items-div').hide();
+            $("#chkbx-menu").show();
+
         $('#tea-list').empty();
 
         $.get('/get/teas').done(function(data) {

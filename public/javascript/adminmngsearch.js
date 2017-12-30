@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
 
-	$('#search-items-list').hide();
-	$('#search-items-input').hide();
+	$('#search-items-div').hide();
+	// $('#search-items-input').hide();
     $('#view-search-terms').on("click", getDisplaySearchTerms);
     $('#add-search-term-button').on("click", postSearchTerm);
 
@@ -27,26 +27,30 @@ $(document).ready(function() {
     //========================================================
 
     function getDisplaySearchTerms() {
+    	console.log("getDisplaySearchTerms");
+    	$("#chkbx-menu").hide();
+    	$('#search-items-div').show();
+    	$('#add-tea-bar').hide();
+    	$('#tea-list').empty();
+		// $('#search-items-input').show();
 
-    	$('#search-items-list').show();
-		$('#search-items-input').show();
-
+		
+	    	$.get('/get/searchterms').done(function(data) {
+	    			console.log("callback")
+	    			displaySearchTerms(data);
+	    		});
 
 
     	$.get('/get/teas').done(function(teaData) {
 
     		dynamicSearchTermsFunc(teaData);
 
-    		$.get('/get/searchterms').done(function(searchTerms) {
-    			console.log(searchterms);
-
-    		})
-
-    		
-
-
-
     	});
+
+	    	// $.get('/get/searchterms').done(function(data) {
+	    	// 		console.log("callback")
+	    	// 		displaySearchTerms(data);
+	    	// 	});
     }
 
     function dynamicSearchTermsFunc(teaData) {
@@ -58,24 +62,31 @@ $(document).ready(function() {
     			}
 
     		}
+    		console.log(headersArray);
     }
 
     function postSearchTerm() {
-    	    	console.log("button pressed");
-
 
     	var postVar ={
     		term: $('#search-item-input-text-field').val().trim()
     	};
-    	console.log(postVar);
 
     	if (postVar.term !== null) {
     		$.post('/post/searchterm', postVar, function() {
 
-    			console.log("posted");
-
+    			$('#search-item-input-text-field').val('');
     		});	
     	}
     	
-    }	
+    }
+
+   function displaySearchTerms(data) {
+   	console.log("displaySearchTerms");
+   	console.log(data);
+
+   	for (var i = 0; i < data.length; i++) {
+   		console.log(data[i]);
+   		$('#search-items-list').append.data[i];
+   	}
+   }	
 })

@@ -124,15 +124,25 @@ module.exports = {
 		});
 	},
 
-	getAdminSearchTerm: function(req, res) {
+	getAdminSearchTerms: function(req, res) {
 		db.SearchTerm.findAll({})
 		.then(function(results) {
+			console.log(results);
 			res.json(results);
 		});
 	},
 
+	// getTeas: function(req, res) {
+	// 	db.Tea.findAll({})
+	// 	.then( function(results) {
+	// 		// console.log(res.);
+	// 		// console.log("*******************************")
+	// 		res.json(results);
+	// 	});
+	// },
+
 	postAdminSearchTerm: function(req, res) {
-		db.searchTerm.create({
+		db.SearchTerm.create({
 			term: req.body.term
 		}).then(function(results) {
 			res.json(results);
