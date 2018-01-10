@@ -42,13 +42,13 @@ module.exports = {
 
 	//API routes
 	getTeas: function(req, res) {
-		db.Tea.findAll({
-			// where: {
-			// 	id: 1
-			// }
-		}).then( function(results) {
+		db.Tea.findAll({})
+		.then( function(results) {
 			// console.log(res.);
 			// console.log("*******************************")
+			
+			var teaObj = require("./controllerDataObjects/teaConstructor")(results);
+
 			res.json(results);
 		});
 	},
@@ -68,24 +68,25 @@ module.exports = {
 		});
 	},
 
-	updateTea: function(req, res) {
-		db.Tea.update(req.body, {			
-			where: {
-				id: req.user.Tea
-			}
-			// name: req.body.name,
-			// priceCup: req.body.priceCup,
-			// pricePot: req.body.pricePot,
-			// priceOz: req.body.priceOz,
-			// description: req.body.description,
-			// teaTypes: req.body.teaTypes,
-			// available: req.body.available,
-			// imageLink1: req.body.imageLink1
-		}).then(function(results) {
-			console.log(results);
-			res.json(results);
-		});
-	},
+	// updateTea: function(req, res) {
+	// 	console.log("backend posts");
+	// 	db.Tea.update(req.body, {			
+	// 		where: {
+	// 			id: req.user.Tea
+	// 		}
+	// 		name: req.body.name,
+	// 		priceCup: req.body.priceCup,
+	// 		pricePot: req.body.pricePot,
+	// 		priceOz: req.body.priceOz,
+	// 		description: req.body.description,
+	// 		teaTypes: req.body.teaTypes,
+	// 		category: req.body.category,
+	// 		available: req.body.available
+	// 	}).then(function(results) {
+	// 		console.log(results);
+	// 		res.json(results);
+	// 	});
+	// },
 
 	signup: function(req, res) {
 		if( req.session.invite_inviteCode ){
@@ -124,6 +125,31 @@ module.exports = {
 	logout: function(req, res) {
 		req.session.destroy(function (err) {
     res.redirect('/index.html'); 
+		});
+	},
+
+	getAdminSearchTerms: function(req, res) {
+		db.SearchTerm.findAll({
+		}).then(function(results) {
+			console.log(results);
+			res.json(results);
+		});
+	},
+
+	// getTeas: function(req, res) {
+	// 	db.Tea.findAll({})
+	// 	.then( function(results) {
+	// 		// console.log(res.);
+	// 		// console.log("*******************************")
+	// 		res.json(results);
+	// 	});
+	// },
+
+	postAdminSearchTerm: function(req, res) {
+		db.SearchTerm.create({
+			term: req.body.term
+		}).then(function(results) {
+			res.json(results);
 		});
 	}
 
