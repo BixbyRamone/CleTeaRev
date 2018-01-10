@@ -46,6 +46,9 @@ module.exports = {
 		.then( function(results) {
 			// console.log(res.);
 			// console.log("*******************************")
+			
+			var teaObj = require("./controllerDataObjects/teaConstructor")(results);
+
 			res.json(results);
 		});
 	},
@@ -65,24 +68,25 @@ module.exports = {
 		});
 	},
 
-	updateTea: function(req, res) {
-		db.Tea.update(req.body, {			
-			where: {
-				id: req.user.Tea
-			}
-			// name: req.body.name,
-			// priceCup: req.body.priceCup,
-			// pricePot: req.body.pricePot,
-			// priceOz: req.body.priceOz,
-			// description: req.body.description,
-			// teaTypes: req.body.teaTypes,
-			// available: req.body.available,
-			// imageLink1: req.body.imageLink1
-		}).then(function(results) {
-			console.log(results);
-			res.json(results);
-		});
-	},
+	// updateTea: function(req, res) {
+	// 	console.log("backend posts");
+	// 	db.Tea.update(req.body, {			
+	// 		where: {
+	// 			id: req.user.Tea
+	// 		}
+	// 		name: req.body.name,
+	// 		priceCup: req.body.priceCup,
+	// 		pricePot: req.body.pricePot,
+	// 		priceOz: req.body.priceOz,
+	// 		description: req.body.description,
+	// 		teaTypes: req.body.teaTypes,
+	// 		category: req.body.category,
+	// 		available: req.body.available
+	// 	}).then(function(results) {
+	// 		console.log(results);
+	// 		res.json(results);
+	// 	});
+	// },
 
 	signup: function(req, res) {
 		if( req.session.invite_inviteCode ){

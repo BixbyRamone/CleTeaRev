@@ -1,5 +1,6 @@
 $(document).ready(function() {
             var teaObjArray = [];
+            // var manualSearchItems = [];
 
             $('#cart-font-awesome').hide();
             $(document).on("change", "#category-checkbox-id", checkboxFunction);
@@ -24,11 +25,16 @@ $(document).ready(function() {
             function getDisplayTeas() {
 
                 $.get('/get/teas').done(function(data) {
+                    setUpPage(data);
+                    // $.get('/get/searchTerms').done(function(newData) {
 
-                    $.get('/get/searchTerms').done(function(newData) {
+                    //     for (var i = 0; i < newData.length; i++) {
+                    //         manualSearchItems.push(newData[i].term);
+                    //     }
+                    //     console.log(manualSearchItems);
 
-                        setUpPage(data, newData);
-                    })
+                    //     setUpPage(data, newData);
+                    // })
 
 
 
@@ -75,7 +81,7 @@ $(document).ready(function() {
                 return teaInfo;
             }
 
-            function setUpPage(obj, searchTerms) {
+            function setUpPage(obj) {
                 var headers = [];
                 var htmlElementArray = [];
                 // var typeHeaders = typeHeadersFunction(obj);
@@ -98,11 +104,11 @@ $(document).ready(function() {
                 }
 
                 showDisplayTeas(obj);
-                categoriesToCheckboxes(headers, searchTerms);
+                categoriesToCheckboxes(headers);
 
             }
 
-            function categoriesToCheckboxes(array, searchTerm) {
+            function categoriesToCheckboxes(array) {
                 // console.log(array.classList);
                 var checkbox = '';
 
@@ -113,15 +119,6 @@ $(document).ready(function() {
                     // console.log(checkbox);
                     $(".tea-types-form").append(checkbox);
                 }
-
-                $(".tea-types-form").append('<br>');
-
-                for (var i = 0; i < searchTerm.length; i++) {
-                    // console.log(searchTerm[i]);
-                    checkbox = '<input type="checkbox" name="description-' + searchTerm[i].term + '" id="category-checkbox-id" checked>' + searchTerm[i].term + '<br>';
-                    $(".tea-types-form").append(checkbox);
-                }
-
 
             }
 
@@ -155,39 +152,90 @@ $(document).ready(function() {
                         $(".html-el-" + headerId).show(500);
 
                     }
-                } else {
-                    var neededName = this.name.split("-");
-                    neededName = neededName[1];
-                    var itemsToChangeArray = [];
+                // } else {
+                //     var neededName = this.name.split("-");
+                //     neededName = neededName[1];
+                //     var itemsToChangeArray = [];
 
-                    for (var i = 0; i < teaObjArray.length; i++) {
-                        if (teaObjArray[i].description.indexOf(neededName) !== -1) {
-                            itemsToChangeArray.push(teaObjArray[i].nameElement);
-                        }
-                    }
-                    if (!this.checked) {
-                        for (var i = 0; i < itemsToChangeArray.length; i++) {
-                            console.log("individual-selector-" + itemsToChangeArray[i]);
-                            $("#individual-selector-" + itemsToChangeArray[i]).hide(500);
-                            }
-                        }
+                //     for (var i = 0; i < teaObjArray.length; i++) {
+                //         if (teaObjArray[i].description.indexOf(neededName) !== -1) {
+                //             itemsToChangeArray.push(teaObjArray[i].nameElement);
+                //         }
+                //     }
+                //     console.log(itemsToChangeArray);
+                //     if (!this.checked) {
 
-                    if (this.checked) {
-                        for (var i = 0; i < itemsToChangeArray.length; i++) {
-                            console.log("individual-selector-" + itemsToChangeArray[i]);
-                            $("#individual-selector-" + itemsToChangeArray[i]).show(500);
-                            }
-                        }
+                //         $(".html-el-Blends").hide();
+                //         // console.log(teaObjArray);
+                //         // console.log("look here");
+                //         // console.log(this.name);
+
+                //         var name = this.name.split("-");
+                //         name = name[1];
+                //         var index = manualSearchItems.indexOf(name);
+                //         manualSearchItems.splice(index, 1);
+
+                //         console.log(manualSearchItems);
+
+                //         for (var i = 0; i < teaObjArray.length; i++) {
+
+                //             for (var j = 0; j < manualSearchItems.length; j++) {
+                //                 var readyToPost = false;
+                //                 if (teaObjArray[i].description.indexOf(manualSearchItems[j]) !== -1 ) {
+                //                     //show html element
+
+                //                      $("#menu-content").append(teaObjArray[i].teaObjtoHTML);
+
+                //                                              $(".html-el-Blends").show();
+
+                //                     console.log("this element should be visiable")
+                //                     console.log(teaObjArray[i].description);
+                //                     console.log(manualSearchItems[j]);
+                //                     console.log(teaObjArray[i].teaHTMLObj);
+                //                     var itemList = teaObjArray[i].teaHTMLObj.split("description:");
+                //                     itemList = itemList[1];
+                //                     console.log(itemList);
+                //                     itemList = itemList.split("<br>");
+                //                     itemList = itemList[0];
+                //                     itemList = itemList.split(",");
+                //                     console.log(itemList);
+                //                 }
+                //             }
+                //            // if (indexOf(teaObjArray[i].)) {
+
+                //            // }
+                //         }
+
+                //         // for (var i = 0; i < itemsToChangeArray.length; i++) {
+                //         //     console.log("individual-selector-" + itemsToChangeArray[i]);
+                //         //     $("#individual-selector-" + itemsToChangeArray[i]).hide(500);
+                //         //     }
+
+
+                //         }
+
+                //     if (this.checked) {
+
+                //         // $(".html-el-Blends").empty();
+
+
+                //         for (var i = 0; i < itemsToChangeArray.length; i++) {
+                //             console.log("individual-selector-" + itemsToChangeArray[i]);
+                //             $("#individual-selector-" + itemsToChangeArray[i]).show(500);
+                //             }
+
+
+                //         }
 
 
 
-                        console.log(itemsToChangeArray);
+                //         console.log(itemsToChangeArray);
 
-                        // if (!this.checked) {
+                //         // if (!this.checked) {
 
 
 
-                        // }
+                //         // }
                     }
 
 
