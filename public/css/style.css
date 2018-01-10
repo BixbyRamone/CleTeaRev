@@ -177,7 +177,9 @@ footer > div > div > ul {
 	float: right;
 }
 
-#chk
+#chk {
+
+}
 
 /* The Modal (background) */
 .modal {
@@ -259,7 +261,7 @@ footer > div > div > ul {
 .list-group-item {
 	text-align: left;
 	font-size: 18px;
-	text-transform: none;
+	text-transform: none;	
 }
 
 /*.delete-button {
