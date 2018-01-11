@@ -2,7 +2,7 @@
   "name": "cletearev",
   "version": "1.0.0",
   "description": "ctr website",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
