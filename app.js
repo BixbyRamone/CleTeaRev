@@ -37,11 +37,11 @@ app.use(bodyParser.json());
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 //passport
-app.use(session({
-    secret: process.env.SECRET,
-    resave: true,
-    saveUninitialized: true
-}));
+// app.use(session({
+//     secret: process.env.SECRET,
+//     resave: true,
+//     saveUninitialized: true
+// }));
 app.use(passport.initialize());
 
 app.use(passport.session());
