@@ -8,6 +8,10 @@ let methodOverride = require('method-override');
 let passport = require('passport');
 let moment = require('moment');
 let fileUpload = require('express-fileupload');
+// let bluebird = require('bluebird');
+
+require('dotenv').config();
+
 
 var PORT = process.env.PORT || 3000;
 let app = express();
@@ -16,6 +20,7 @@ let app = express();
 // let db = require('./models');
 
 app.use(express.static('./public'));
+
 let db = require('./models');
 
 app.use(cookieParser());
